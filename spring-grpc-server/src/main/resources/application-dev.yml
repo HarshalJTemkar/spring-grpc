@@ -1,0 +1,9 @@
+﻿spring: 
+  jpa: 
+    hibernate: 
+      ddl-auto: create-drop 
+    show-sql: true 
+logging: 
+  level: 
+    com.springgrpc: DEBUG 
+    io.grpc: DEBUG 

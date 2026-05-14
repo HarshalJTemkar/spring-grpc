@@ -1,0 +1,32 @@
+﻿syntax = "proto3"; 
+package oauth; 
+option java_package = "com.springgrpc.grpc.oauth"; 
+option java_outer_classname = "TokenServiceProto"; 
+option java_multiple_files = true; 
+import "common/common.proto"; 
+import "oauth/auth_service.proto"; 
+ 
+message RefreshTokenRequest { 
+  string refresh_token = 1; 
+  string client_id = 2; 
+  string client_secret = 3; 
+} 
+ 
+message IntrospectTokenRequest { 
+  string token = 1; 
+  string client_id = 2; 
+  string client_secret = 3; 
+} 
+ 
+message IntrospectTokenResponse { 
+  bool active = 1; 
+  string sub = 2; 
+  string scope = 3; 
+  int64 exp = 4; 
+  string client_id = 5; 
+} 
+ 
+service TokenService { 
+  rpc RefreshToken (RefreshTokenRequest) returns (OAuthTokenResponse); 
+  rpc IntrospectToken (IntrospectTokenRequest) returns (IntrospectTokenResponse); 
+} 

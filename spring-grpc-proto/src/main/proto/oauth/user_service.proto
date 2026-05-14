@@ -1,0 +1,28 @@
+﻿syntax = "proto3"; 
+package oauth; 
+option java_package = "com.springgrpc.grpc.oauth"; 
+option java_outer_classname = "UserServiceProto"; 
+option java_multiple_files = true; 
+import "common/common.proto"; 
+ 
+message GetUserRequest { string user_id = 1; } 
+ 
+message UserProfile { 
+  string user_id = 1; 
+  string username = 2; 
+  string email = 3; 
+  string status = 4; 
+  repeated string roles = 5; 
+} 
+ 
+message ListUsersRequest { common.PageRequest page = 1; } 
+ 
+message ListUsersResponse { 
+  repeated UserProfile users = 1; 
+  common.PageInfo page_info = 2; 
+} 
+ 
+service UserService { 
+  rpc GetUser (GetUserRequest) returns (UserProfile); 
+  rpc ListUsers (ListUsersRequest) returns (ListUsersResponse); 
+} 
