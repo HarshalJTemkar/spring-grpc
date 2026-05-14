@@ -1,0 +1,38 @@
+﻿syntax = "proto3"; 
+package oauth; 
+option java_package = "com.springgrpc.grpc.oauth"; 
+option java_outer_classname = "AuthServiceProto"; 
+option java_multiple_files = true; 
+import "common/common.proto"; 
+import "common/error.proto"; 
+ 
+message PasswordGrantRequest { 
+  string username = 1; 
+  string password = 2; 
+  string client_id = 3; 
+  string client_secret = 4; 
+  string scope = 5; 
+} 
+ 
+message OAuthTokenResponse { 
+  string access_token = 1; 
+  string token_type = 2; 
+  int64 expires_in = 3; 
+  string refresh_token = 4; 
+  string scope = 5; 
+  string correlation_id = 6; 
+} 
+ 
+message RevokeTokenRequest { 
+  string token = 1; 
+  string token_type_hint = 2; 
+  string client_id = 3; 
+  string client_secret = 4; 
+} 
+ 
+message RevokeTokenResponse { bool success = 1; } 
+ 
+service AuthService { 
+  rpc PasswordGrant (PasswordGrantRequest) returns (OAuthTokenResponse); 
+  rpc RevokeToken (RevokeTokenRequest) returns (RevokeTokenResponse); 
+} 
