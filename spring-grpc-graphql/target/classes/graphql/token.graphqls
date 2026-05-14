@@ -1,0 +1,27 @@
+﻿extend type Mutation { 
+  refreshToken(input: RefreshTokenInput!): TokenResponse! 
+} 
+ 
+extend type Query { 
+  introspect(input: IntrospectTokenInput!): IntrospectionResponse! 
+} 
+ 
+input RefreshTokenInput { 
+  refreshToken: String! 
+  clientId: String! 
+  clientSecret: String! 
+} 
+ 
+input IntrospectTokenInput { 
+  token: String! 
+  clientId: String! 
+  clientSecret: String! 
+} 
+ 
+type IntrospectionResponse { 
+  active: Boolean! 
+  sub: String 
+  scope: String 
+  exp: Int 
+  clientId: String 
+} 
