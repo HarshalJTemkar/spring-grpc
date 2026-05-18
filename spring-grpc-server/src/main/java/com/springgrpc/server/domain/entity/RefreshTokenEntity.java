@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.domain.entity; 
+package com.springgrpc.server.domain.entity; 
 import jakarta.persistence.*; import lombok.*; import java.time.Instant; 
 @Entity @Table(name = "refresh_tokens") @Data @Builder @NoArgsConstructor @AllArgsConstructor 
 public class RefreshTokenEntity { 

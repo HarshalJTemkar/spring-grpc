@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.service; 
+package com.springgrpc.server.service; 
 import com.springgrpc.server.domain.entity.UserEntity; 
 import com.springgrpc.server.domain.enums.ErrorCode; 
 import com.springgrpc.server.domain.enums.UserStatus; 
@@ -12,9 +12,11 @@ public class UserService {
     private final UserRepository userRepository; 
     public UserEntity findByUsername(String username) { 
         return userRepository.findByUsername(username) 
+            .orElseThrow(() -> new OAuthException(ErrorCode.USER_NOT_FOUND, "User not found: " + username)); 
     } 
     public UserEntity findById(String id) { 
         return userRepository.findById(id) 
+            .orElseThrow(() -> new OAuthException(ErrorCode.USER_NOT_FOUND, "User not found: " + id)); 
     } 
     public void validateUserActive(UserEntity user) { 
         if (user.getStatus() == UserStatus.LOCKED) throw new OAuthException(ErrorCode.USER_LOCKED, "User account is locked"); 

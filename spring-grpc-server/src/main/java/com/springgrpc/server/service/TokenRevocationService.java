@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.service; 
+package com.springgrpc.server.service; 
 import com.springgrpc.server.cache.TokenCacheService; 
 import com.springgrpc.server.domain.entity.TokenEntity; 
 import com.springgrpc.server.domain.enums.ErrorCode; 
@@ -17,6 +17,7 @@ public class TokenRevocationService {
     @Transactional 
     public void revokeToken(String tokenValue) { 
         TokenEntity token = tokenRepository.findByTokenValue(tokenValue) 
+            .orElseThrow(() -> new OAuthException(ErrorCode.INVALID_TOKEN, "Token not found")); 
         token.setRevoked(true); 
         tokenRepository.save(token); 
         Duration remaining = Duration.between(Instant.now(), token.getExpiresAt()); 

@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.domain.entity; 
+package com.springgrpc.server.domain.entity; 
 import jakarta.persistence.*; import lombok.*; import java.time.Instant; import java.util.Set; 
 @Entity @Table(name = "oauth_clients") @Data @Builder @NoArgsConstructor @AllArgsConstructor 
 public class ClientEntity { 

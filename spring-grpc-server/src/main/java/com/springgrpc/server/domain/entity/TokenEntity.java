@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.domain.entity; 
+package com.springgrpc.server.domain.entity; 
 import com.springgrpc.server.domain.enums.TokenType; 
 import jakarta.persistence.*; import lombok.*; import java.time.Instant; 
 @Entity @Table(name = "tokens") @Data @Builder @NoArgsConstructor @AllArgsConstructor 

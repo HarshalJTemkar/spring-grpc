@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.security; 
+package com.springgrpc.server.security; 
 import lombok.*; import java.util.List; 
 @Data @Builder 
 public class TokenClaims { 

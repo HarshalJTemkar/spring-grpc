@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.exception; 
+package com.springgrpc.server.exception; 
 import io.grpc.Status; 
 import io.grpc.StatusRuntimeException; 
 import net.devh.boot.grpc.server.advice.GrpcAdvice; 

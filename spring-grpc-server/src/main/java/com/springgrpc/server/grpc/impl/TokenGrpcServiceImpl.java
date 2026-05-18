@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.grpc.impl; 
+package com.springgrpc.server.grpc.impl; 
 import com.springgrpc.grpc.oauth.*; 
 import com.springgrpc.server.domain.entity.*; 
 import com.springgrpc.server.domain.enums.ErrorCode; 
@@ -23,6 +23,7 @@ public class TokenGrpcServiceImpl extends TokenServiceGrpc.TokenServiceImplBase 
     public void refreshToken(RefreshTokenRequest request, StreamObserver<OAuthTokenResponse> responseObserver) { 
         clientValidationService.validateClient(request.getClientId(), request.getClientSecret()); 
         RefreshTokenEntity rt = refreshTokenRepository.findByTokenValue(request.getRefreshToken()) 
+            .orElseThrow(() -> new OAuthException(ErrorCode.INVALID_TOKEN, "Refresh token not found")); 
         if (rt.isUsed() || rt.isRevoked()) throw new OAuthException(ErrorCode.REVOKED_TOKEN, "Refresh token already used/revoked"); 
         rt.setUsed(true); 
         refreshTokenRepository.save(rt); 
