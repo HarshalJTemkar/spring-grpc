@@ -31,6 +31,24 @@ grpc:
     security:
       enabled: false
 
+# ----------------------------------------------------------------------------
+# Authorization toggle (applies to both HTTP and gRPC interceptors).
+#   enabled=false -> all requests permitted (no auth checks)
+#   enabled=true  -> Bearer JWT required (HTTP non-actuator endpoints + gRPC,
+#                    except the oauth.AuthService / oauth.TokenService methods
+#                    used to obtain a token in the first place)
+# All values can be overridden via environment variables or
+# application-<profile>.yml without code changes. No hard-coding - see
+# com.springgrpc.server.util.Constants for the defaults.
+# ----------------------------------------------------------------------------
+security:
+  authorization:
+    enabled: ${AUTHZ_ENABLED:false}
+    header-name: ${AUTHZ_HEADER_NAME:authorization}
+    # NOTE: trailing space is significant - must be quoted so YAML does not strip it
+    bearer-prefix: "${AUTHZ_BEARER_PREFIX:Bearer }"
+    actuator-path-pattern: ${AUTHZ_ACTUATOR_PATTERN:/actuator/**}
+
 jwt:
   secret: ${JWT_SECRET:default-secret-for-dev-only-change-in-prod-32chars}
   expiration-ms: ${JWT_EXPIRATION_MS:3600000}
