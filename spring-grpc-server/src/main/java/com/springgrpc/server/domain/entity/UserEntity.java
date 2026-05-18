@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.domain.entity; 
+package com.springgrpc.server.domain.entity; 
 import com.springgrpc.server.domain.enums.UserStatus; 
 import jakarta.persistence.*; 
 import lombok.*; 

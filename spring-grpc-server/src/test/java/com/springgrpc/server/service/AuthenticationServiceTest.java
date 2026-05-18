@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.service; 
+package com.springgrpc.server.service; 
 import com.springgrpc.server.domain.entity.*; 
 import com.springgrpc.server.domain.enums.UserStatus; 
 import com.springgrpc.server.exception.OAuthException; 
@@ -40,5 +40,7 @@ class AuthenticationServiceTest {
         when(clientValidationService.validateClient(any(),any())).thenReturn(client); 
         when(userService.findByUsername(any())).thenReturn(user); 
         when(passwordEncoderService.matches(any(),any())).thenReturn(false); 
+        assertThatThrownBy(() -> authService.authenticate("alice","wrong","client1","secret","read")) 
+            .isInstanceOf(OAuthException.class); 
     } 
 } 

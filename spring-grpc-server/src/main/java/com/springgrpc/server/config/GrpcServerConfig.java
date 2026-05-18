@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.config; 
+package com.springgrpc.server.config; 
 import net.devh.boot.grpc.server.interceptor.GlobalServerInterceptorRegistry; 
 import org.springframework.context.annotation.Configuration; 
 @Configuration 

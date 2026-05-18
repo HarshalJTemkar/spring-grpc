@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.mapper; 
+package com.springgrpc.server.mapper; 
 import com.springgrpc.grpc.oauth.UserProfile; 
 import com.springgrpc.server.domain.entity.UserEntity; 
 import org.mapstruct.Mapper; 

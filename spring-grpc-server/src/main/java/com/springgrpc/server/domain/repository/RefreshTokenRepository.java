@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.domain.repository; 
+package com.springgrpc.server.domain.repository; 
 import com.springgrpc.server.domain.entity.RefreshTokenEntity; 
 import org.springframework.data.jpa.repository.JpaRepository; 
 import org.springframework.stereotype.Repository; 

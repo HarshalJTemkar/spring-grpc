@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.exception; 
+package com.springgrpc.server.exception; 
 import com.springgrpc.server.domain.enums.ErrorCode; 
 import lombok.Getter; 
 @Getter 

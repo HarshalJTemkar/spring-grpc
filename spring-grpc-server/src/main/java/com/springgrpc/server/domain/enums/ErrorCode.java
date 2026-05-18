@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.domain.enums; 
+package com.springgrpc.server.domain.enums; 
 public enum ErrorCode { 
     INVALID_CREDENTIALS, INVALID_CLIENT, INVALID_GRANT, INVALID_SCOPE, 
     INVALID_TOKEN, EXPIRED_TOKEN, REVOKED_TOKEN, INSUFFICIENT_SCOPE, 

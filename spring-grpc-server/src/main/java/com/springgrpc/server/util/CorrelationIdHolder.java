@@ -1,4 +1,4 @@
-﻿package com.springgrpc.server.util; 
+package com.springgrpc.server.util; 
 public class CorrelationIdHolder { 
     private static final ThreadLocal<String> HOLDER = new ThreadLocal<>(); 
     public static void set(String id) { HOLDER.set(id); } 
