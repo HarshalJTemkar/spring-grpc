@@ -1,4 +1,4 @@
-﻿package com.springgrpc.graphql.config; 
+package com.springgrpc.graphql.config; 
 import com.springgrpc.grpc.oauth.*; 
 import io.grpc.ManagedChannel; 
 import net.devh.boot.grpc.client.inject.GrpcClient; 

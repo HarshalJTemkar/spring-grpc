@@ -1,4 +1,4 @@
-﻿package com.springgrpc.graphql.scalar; 
+package com.springgrpc.graphql.scalar; 
 import graphql.language.StringValue; 
 import graphql.schema.*; 
 import java.time.OffsetDateTime; 
