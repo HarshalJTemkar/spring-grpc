@@ -1,4 +1,4 @@
-﻿package com.springgrpc.graphql.dto.input; 
+package com.springgrpc.graphql.dto.input; 
 import jakarta.validation.constraints.NotBlank; 
 import lombok.Data; 
 @Data 

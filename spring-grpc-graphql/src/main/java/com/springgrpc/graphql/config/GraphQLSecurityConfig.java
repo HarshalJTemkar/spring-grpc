@@ -1,4 +1,4 @@
-﻿package com.springgrpc.graphql.config; 
+package com.springgrpc.graphql.config; 
 import org.springframework.context.annotation.Bean; 
 import org.springframework.context.annotation.Configuration; 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity; 
@@ -10,10 +10,14 @@ public class GraphQLSecurityConfig {
     @Bean 
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception { 
         return http 
-                .requestMatchers("/graphql").permitAll() 
-                .requestMatchers("/graphiql/**").permitAll() 
-                .requestMatchers("/actuator/**").permitAll() 
-                .anyRequest().authenticated()) 
+            .csrf(csrf -> csrf.disable())
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers("/graphql").permitAll()
+                .requestMatchers("/graphiql/**").permitAll()
+                .requestMatchers("/actuator/**").permitAll()
+                .anyRequest().authenticated()
+            )
             .build(); 
     } 
 } 

@@ -1,4 +1,4 @@
-﻿type Mutation { 
+type Mutation { 
   login(input: PasswordGrantInput!): TokenResponse! 
   revokeToken(input: RevokeTokenInput!): Boolean! 
 } 

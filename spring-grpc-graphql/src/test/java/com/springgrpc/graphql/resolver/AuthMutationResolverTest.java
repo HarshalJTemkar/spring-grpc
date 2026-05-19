@@ -1,4 +1,4 @@
-﻿package com.springgrpc.graphql.resolver; 
+package com.springgrpc.graphql.resolver; 
 import com.springgrpc.graphql.resolver.mutation.AuthMutationResolver; 
 import com.springgrpc.grpc.oauth.*; 
 import org.junit.jupiter.api.Test; 

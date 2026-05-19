@@ -1,4 +1,4 @@
-﻿package com.springgrpc.graphql.exception; 
+package com.springgrpc.graphql.exception; 
 import graphql.GraphQLError; 
 import graphql.GraphqlErrorBuilder; 
 import graphql.schema.DataFetchingEnvironment; 

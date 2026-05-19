@@ -1,4 +1,4 @@
-﻿extend type Mutation { 
+extend type Mutation { 
   refreshToken(input: RefreshTokenInput!): TokenResponse! 
 } 
  

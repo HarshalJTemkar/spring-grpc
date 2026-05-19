@@ -1,4 +1,4 @@
-﻿package com.springgrpc.graphql.dto.response; 
+package com.springgrpc.graphql.dto.response; 
 import lombok.*; 
 import java.util.List; 
 @Data @Builder 

@@ -1,4 +1,4 @@
-﻿syntax = "proto3"; 
+syntax = "proto3"; 
 package oauth; 
 option java_package = "com.springgrpc.grpc.oauth"; 
 option java_outer_classname = "ResourceServiceProto"; 
